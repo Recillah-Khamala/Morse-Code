@@ -39,6 +39,7 @@ MORSE_CODE = {
   '----.' => '9',
   '-----' => '0'
 }.freeze
+
 # Create a method to decode a Morse code character.
 def decode_char(morse_letter)
   MORSE_CODE[morse_letter].upcase
