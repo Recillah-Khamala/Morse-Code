@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 MORSE_CODE = {
   '.-' => 'a',
   '-...' => 'b',
@@ -37,29 +39,29 @@ MORSE_CODE = {
   '----.' => '9',
   '-----' => '0'
 }.freeze
-# Create a method to decode a Morse code character, takes a string parameter, and return the corresponding character in uppercase
+# Create a method to decode a Morse code character.
 def decode_char(morse_letter)
-    MORSE_CODE[morse_letter].upcase
+  MORSE_CODE[morse_letter].upcase
 end
-p decode_char('-') #T
+p decode_char('-') # T
 
-# Create a method to decode an entire word in Morse code, takes a string parameter, and return the string representation. Every character in a word will be separated by a single space
+# Create a method to decode an entire word in Morse code.
 
 def decode_word(morse_word)
   string = ''
-  morse_word.split.each { |n| string += decode_char(n) }  
+  morse_word.split.each { |n| string += decode_char(n) }
   string
 end
-p decode_word("-- -.--") #"MY"
+p decode_word('-- -.--') # "MY"
 
-# Create a method to decode the entire message in Morse code, takes a string parameter, and return the string representation. Every word will be separated by 3 spaces
+# Create a method to decode the entire message in Morse code.
 def decode(morse_sentence)
-    string = ''
-    sentence = morse_sentence.split('   ')
-    sentence.each { |n| string += "#{decode_word(n)} " }
-    string.strip
+  string = ''
+  sentence = morse_sentence.split('   ')
+  sentence.each { |n| string += "#{decode_word(n)} " }
+  string.strip
 end
-p decode("-- -.--   -. .- -- .")
+p decode('-- -.--   -. .- -- .')
 
 # Once your code is ready use it to decode the message from the old bottle:
-p decode(".-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...") # A BOX FULL OF RUBIES
+p decode('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...') # A BOX FULL OF RUBIES
